@@ -13,13 +13,12 @@ Node.js는 이 패키지의 설치기, 로컬 미리보기 서버, 자동 테스
 | 준비물 | 확인할 내용 |
 |---|---|
 | Claude Desktop | 같은 버전 설치, Code 탭에서 로컬 폴더를 여는 흐름을 강사 계정으로 사전 리허설 |
-| Git for Windows | Git 명령 실행 가능. 강사의 이름·이메일·로그인 상태를 수강생 공용 PC에 배포하지 않음 |
+| Git for Windows | Git 명령과 포함된 Git Credential Manager(GCM) 동작 확인. 강사의 이름·이메일·로그인 상태를 공용 PC에 배포하지 않음 |
 | Node.js 24 LTS | 설치 후 Claude Desktop을 다시 열어 `node`와 `npm` 인식 확인 |
-| GitHub Desktop | **현재 교안의 명령어 없는 Git 실습에 필요**. Git과 별개 앱이므로 함께 사전 설치 권장 |
 | 브라우저·폴더 | 빈 실습 폴더 생성·파일 쓰기·로컬 미리보기 가능. 수강생마다 자기 폴더 사용 |
 | 네트워크 | 강의실 네트워크에서 Claude, GitHub 로그인, 저장소 다운로드, 사용할 GitHub MCP 연결 방식 확인 |
 
-GitHub Desktop을 사용하지 않는다면 Claude에 Git 명령 실행을 요청하는 별도 진행 방식이 필요하다. 현재 교안은 수강생이 Desktop에서 변경 내용을 읽고 commit·push하는 방식이다.
+GitHub Desktop은 설치하거나 로그인할 필요가 없다. 수강생은 Claude Code에 자연어로 Git 작업을 요청한다. Claude가 변경 파일·커밋 메시지·대상 저장소를 보여 주면 수강생이 확인하고 실행을 요청한다. Git 명령어 암기를 요구하지 않는다.
 
 ## 수강생이 수업 전에 할 일
 
@@ -33,10 +32,10 @@ GitHub Desktop을 사용하지 않는다면 Claude에 Git 명령 실행을 요�
 
 아래 과정에 **25~30분을 배정하는 운영안을 권장**한다. 소요 시간은 실측 보장이 아니다. 30명이 모두 처음 인증한다면 더 길어질 수 있으므로 진행 상태를 눈으로 확인하며 넘어간다.
 
-1. Claude Desktop과 GitHub Desktop에 **본인 계정**으로 로그인한다. Claude는 결제한 계정인지 확인한다.
-2. GitHub Desktop의 `File → Options → Git`에서 작성자 이름과 이메일을 확인한다. `user.name`은 GitHub 로그인 아이디가 아니라 커밋에 남는 이름이다. 이메일은 계정에 연결된 주소 또는 GitHub가 제공한 noreply 주소를 고른다. 설정은 인증을 대신하지 않는다.
+1. Claude Desktop에 **본인 Pro 계정**으로 로그인하고, 브라우저에서 본인 GitHub 계정에 로그인한다.
+2. Git 작성자 이름과 이메일을 준비한다. `user.name`은 GitHub 로그인 아이디가 아니라 커밋에 남는 이름이다. 이메일은 계정에 연결된 주소 또는 GitHub가 제공한 noreply 주소를 고른다. 앱의 첫 커밋 전에 Claude에게 해당 프로젝트의 로컬 Git 설정을 요청한다. 설정은 인증을 대신하지 않는다.
 3. Claude의 **Code 탭 → 로컬 세션**에서 빈 실습 폴더를 연다. 강사가 실제 사용할 Sonnet 모델을 화면에서 함께 확인한다.
-4. 강사가 사전 검증한 GitHub MCP 연결 방법으로 본인 인증을 마친다. 그 Code 세션에서 이 저장소의 README를 읽어 연결을 확인한다. GitHub Desktop 로그인과 MCP 인증은 별개다.
+4. 강사가 사전 검증한 GitHub MCP 연결 방법으로 본인 인증을 마친다. 그 Code 세션에서 이 저장소의 README를 읽어 연결을 확인한다. MCP 인증과 로컬 Git의 push 인증은 별개일 수 있다. Git for Windows의 GCM을 통한 브라우저 로그인이 준비돼 있는지 확인한다. 실제 학생 앱의 첫 push는 MVP 뒤에 한다.
 5. 아래 요청문을 붙여 넣는다. 설치 확인 뒤 `/edu-start`와 `/edu-interview`로 넘어간다.
 
 ```text
@@ -68,9 +67,9 @@ https://github.com/meta-agent-project/meta-edu-harness
 
 강사는 설명 전에 현재 단계·붙여 넣을 요청문·완료 화면을 함께 제시한다. 수강생은 “진행 중 / 완료 / 도움 필요” 상태를 표시한다. 개인 오류를 수업 전체가 기다리게 되면 이미 준비한 복구 지점으로 합류시키고 원인 확인은 별도 기록한다. 한도에 도달하면 추가 결제를 전제로 진행하지 말고 강사 시연과 복구 예제로 전환한다.
 
-첫 push 전에 Code가 수정하는 폴더와 GitHub Desktop이 보는 폴더가 같은지, 학생 본인 계정의 앱 저장소인지 확인한다. 강사 스킬 저장소와 수강생 앱 저장소는 별개다.
+첫 push 전에 Claude에게 현재 프로젝트 폴더·Git 저장소·remote 주소를 보여 달라고 요청한다. 학생 본인 계정의 앱 저장소인지 확인한다. 저장소 생성은 MCP가 해당 기능과 권한을 지원하면 요청하고, 지원하지 않으면 GitHub 웹에서 만든 뒤 URL을 전달한다. 로컬 push는 Git 인증을 사용하며 필요 시 GCM이 여는 브라우저에서 본인이 로그인한다. 강사 스킬 저장소와 수강생 앱 저장소는 별개다.
 
-수업 종료 시 본인 앱 저장소의 업로드를 확인한 뒤 공용 PC에서 Claude·GitHub Desktop·브라우저 계정을 로그아웃한다. 운영자는 다음 수강생에게 이전 사람의 계정·작성자 정보가 남지 않도록 좌석 환경을 초기화한다.
+수업 종료 시 본인 앱 저장소의 업로드를 확인한 뒤 공용 PC에서 Claude·브라우저 계정을 로그아웃한다. 운영자는 Git 인증 관리자에 저장된 수강생 인증과 MCP 인증·작성자 정보도 포함해 좌석 환경을 초기화한다.
 
 ## 확인한 공식 안내
 
@@ -79,7 +78,7 @@ https://github.com/meta-agent-project/meta-edu-harness
 - [Claude Pro 가격과 포함 기능](https://support.claude.com/en/articles/8325606-what-is-the-pro-plan)
 - [Pro로 Claude Code 사용하기·공유 사용량 한도](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
 - [Claude Desktop Code와 로컬 도구·MCP](https://code.claude.com/docs/en/desktop)
-- [GitHub Desktop에서 이름·이메일 설정](https://docs.github.com/en/desktop/configuring-and-customizing-github-desktop/configuring-git-for-github-desktop)
+- [Git for Windows의 GCM과 브라우저 인증](https://docs.github.com/en/get-started/git-basics/caching-your-github-credentials-in-git)
 - [Git 작성자 이름과 GitHub 사용자 이름의 차이](https://docs.github.com/en/get-started/git-basics/setting-your-username-in-git)
 - [Node.js 지원 버전·24 LTS](https://nodejs.org/en/about/previous-releases)
 

@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "name": "sdd-education-skills",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "skills": [
     "edu-build",
     "edu-change",
@@ -16,7 +16,7 @@
   "files": [
     {
       "path": ".claude/edu-rules.md",
-      "sha256": "fb8b3acbd619c329eb268a83165341007601053638efa546e6092ed842aa2b39"
+      "sha256": "a051081ff8fef1d95633d16e97682d58573be23371231d24c6a61fa2bbc0c0ac"
     },
     {
       "path": ".claude/edu-templates/bug-report.md",
