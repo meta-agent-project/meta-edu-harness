@@ -1,0 +1,13 @@
+{
+  "name": "sdd-classroom-starter",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "start": "node tools/serve.mjs",
+    "test": "node --test",
+    "doctor": "node tools/doctor.mjs"
+  }
+}

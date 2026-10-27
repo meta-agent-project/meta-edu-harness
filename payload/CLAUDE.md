@@ -1,0 +1,1 @@
+@.claude/edu-rules.md
