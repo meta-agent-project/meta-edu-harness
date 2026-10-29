@@ -1,32 +1,26 @@
 # SDD 교육 프로젝트 공통 규칙
 
-이 프로젝트는 비개발자 4시간 워크숍이다. 현재 spec 한 개를 순차로 다룬다.
+비개발자 4시간 수업이다. 현재 spec 하나를 순차로 진행한다. 외부 DB 없이 시작하며 필요하면 로컬 JSON을 사용한다. HTML 편집기 8개 동작은 수업 예시이고 다른 앱에 강요하지 않는다.
 
-- 사용자가 인터뷰에서 확정한 목적·MVP 범위·외부 DB 없음 조건을 보존한다. HTML 편집기 8개 기능은 선택 가능한 수업 예시이며 모든 프로젝트의 기본 요구사항이 아니다.
-- .edu/contract.md와 현재 spec·plan, 직접 관련된 코드만 우선 읽는다. 전체 문서·전체 로그를 매번 다시 읽지 않는다.
-- 구현 전 spec→필요한 목업→선택→plan을 남긴다. 이미 확정된 선택은 반복해서 묻지 않는다. 미결정 범위·시안·요구사항 변경은 짧게 물어 확정한다.
-- 병렬 에이전트, worktree, 외부 모델 재검토, 끝까지 자동 진행하는 루프는 기본 흐름에 포함하지 않는다.
-- 새 아이디어는 .edu/backlog.md에 기록하고 현재 작업을 계속한다. 현재 spec의 결함은 현재 작업에서 고친다.
-- 핵심 검사는 먼저 작성하고 의도된 실패를 확인한다. 대표 기능은 red→green→필요한 정리의 TDD를 보여준다. 사후 검사를 TDD라고 부르지 않는다.
-- 유효한 기존 검사는 보존한다. 바뀐 요구사항의 검사는 근거와 함께 갱신한다. 실패를 감추기 위해 검사를 제거·완화하지 않는다.
-- 같은 실패에 두 번 수정해도 해결되지 않으면 상태를 blocked로 기록하고 원인·시도·다음 선택을 강사에게 보여준다. 시간 경과나 미실행을 통과로 기록하지 않는다.
-- Git은 Claude Code에 자연어로 요청한다. GitHub Desktop은 요구하지 않는다. 변경 파일·검사 결과·추천 커밋 메시지·대상 remote를 보여 주고, 사용자가 요청한 범위에서 commit·push를 실행한다. 이미 명확히 요청한 실행은 재확인하지 않는다. 요청 없이 자동 게시하지 않으며 리셋·강제 push는 기본 흐름에 포함하지 않는다.
-- 첫 커밋 전에 작성자 이름·이메일을 확인한다. 값이 없으면 사용자에게 필요한 값만 받아 해당 프로젝트의 로컬 Git 설정으로 저장한다. GitHub MCP 인증과 로컬 Git 인증을 혼동하지 않는다. 비밀번호·토큰을 대화나 저장소에 기록하지 않는다.
-- 기능 검증이 끝나면 ready로 기록하고, 사람의 화면 확인과 실제 commit을 확인한 뒤 done으로 바꾼다. 상태만 보고 구현됐다고 추정하지 않는다.
-- 요구사항 변경은 같은 spec 파일을 최신화하고 .edu/history.md에 전후·이유·영향을 남긴다. 원문과 최신 내용을 한 spec 안에 중복 보존하지 않는다.
-- 만들 대상과 목적은 edu-interview, 기대 동작 자체의 변경은 edu-change, 명세와 다른 실제 동작은 edu-fix, 나중에 할 아이디어는 edu-flow backlog로 다룬다. 버그를 숨기려고 spec을 바꾸지 않는다.
-- 테스트 출력은 이름·결과·필요한 오류만 요약한다. 로컬 실행과 모델의 결과 해석 사용량을 구분한다.
+- 먼저 .edu/contract.md, 현재 spec·plan, 직접 관련 코드·검사만 읽는다. 전체 자료나 성공 로그를 매번 다시 읽지 않는다. 기본 흐름에 병렬 에이전트·worktree·외부 모델 검수·무제한 자동 반복을 넣지 않는다.
+- 초기 로드맵은 MVP와 본개발의 큰 방향이다. MVP를 작동시켜 사용자 테스트한 뒤 보완점과 우선순위로 본개발 로드맵을 확정한다. 상세 spec은 해당 기능을 시작할 때 만든다.
+- 기능 흐름: spec → 필요한 목업과 선택 → plan → 실패 테스트 → 구현 → 통과 → 빠른 누적 회귀 검사 → edu-converge → 사람 확인·로컬 Git 커밋. 사후 테스트를 TDD라고 부르지 않는다.
+- 매 코드 편집마다 전체 브라우저 통합 테스트를 반복하지 않는다. 기능 완료 때 빠른 누적 테스트 전체를 실행하고 영향받는 실제 사용자 흐름을 확인한다. 미실행 검사는 미실행으로 남기며 모든 회귀 방지를 보장하지 않는다.
+- 미착수 로드맵은 사용자의 확정된 추가·변경에 따라 의존성·우선순위를 확인해 조정할 수 있다. 아직 채택하지 않은 아이디어는 backlog에 기록한다. 진행 중인 spec에 새 기능을 몰래 끼워 넣지 않는다.
+- 완료한 기능의 기대 동작 변경은 edu-change다. 명세와 다른 실제 동작은 새 요구로 바꾸지 않고 현재 개발 단계에서 재현·수정·검사한다. 버그를 맞는 동작으로 보이게 spec을 고치거나 유효한 검사를 삭제하지 않는다.
+- 별도 history.md와 일상적인 ADR은 만들지 않는다. 현재 spec·plan·코드·검사 근거를 Git으로 함께 기록한다. 커밋 메시지 본문에 무엇을 왜 바꿨는지, 검사 갱신 이유를 적는다. 기존 프로젝트의 과거 기록은 요청 없이 삭제하지 않는다.
+- GitHub 가입·MCP·원격 push는 수업 필수가 아니다. 기본은 로컬 Git이다. 첫 커밋 전 이름·이메일을 확인하고 없으면 필요한 값만 받아 프로젝트 로컬 설정에 저장한다. 전역 설정이나 remote를 임의로 변경하지 않는다.
+- 변경 파일·실행한 검사·추천 메시지를 보여주고 사용자가 요청한 범위에서 커밋한다. 이미 명확히 요청한 실행은 다시 묻지 않는다. 자동 게시·강제 push·작업 덮어쓰기를 하지 않는다.
+- 동일 실패에 두 번 수정해도 해결되지 않으면 원인·시도·다음 선택을 요약하고 강사에게 넘긴다. 무한 재시도나 임의로 검사를 약하게 만드는 방식으로 시간을 쓰지 않는다.
+- 이번 회차의 spec을 모두 마친 뒤 edu-wiki로 검증된 현재 기능과 연결 관계를 HTML 지도에 정리한다. 미래 기능을 구현된 것으로 표시하지 않는다.
 
 ## 파일과 상태
 
-.edu/interview.md: 질문·답변 요약, 만들 앱·MVP 범위와 확정 근거. .edu/contract.md: 확정한 목표·제약·기술·실행 명령.
-.edu/mvp-roadmap.md: 최초 MVP 작업 순서. .edu/roadmap.md: MVP 경험 후 전체 로드맵.
-.edu/backlog.md: 아이디어·상태·연결 spec. .edu/history.md: 요구사항 변경 기록.
-.edu/bugs.md: BUG ID별 재현·기대/실제·원인·수정 전후 검사·해결 상태. 버그 수정은 요구사항 변경 history와 구분한다.
-.edu/specs/001/spec.md, mockups/a.html·b.html·selected.html, plan.md, validation.md.
-.edu/catalog.json: 진행 상태 목록. 문서·실제 검사에서 확인한 사실만 기록한다.
-
-catalog 형식: {"project":"이름","features":[{"id":"SPEC-001","title":"이름","status":"draft","spec":"specs/001/spec.md","plan":"specs/001/plan.md","validation":"specs/001/validation.md","summary":"설명","evidence":[],"commit":""}]}
-status: draft, specified, designed, planned, building, ready, done, blocked. 변경 시 기존 done을 planned 등 실제 단계로 되돌리고 오래된 검사 근거는 현재 통과 근거로 쓰지 않는다.
-
-문서 템플릿은 .claude/edu-templates/에 있다. 해당 단계의 템플릿만 읽는다. 앱 코드는 src/, tests/에 둔다. 기본 명령: npm start, npm test, npm run doctor.
+.edu/setup.md: 실제 환경 확인. interview.md: 목적과 MVP 합의. contract.md: 목표·제약·실행 명령.
+.edu/mvp-roadmap.md: 최초 MVP 작업 순서. roadmap.md: 큰 방향과 사용자 테스트 후 확정한 본개발 범위.
+.edu/feedback.md: 사용자 테스트 관찰·추가/보완점. backlog.md: 채택 전 아이디어.
+.edu/specs/번호/: spec.md, 필요한 mockups/, plan.md, validation.md. 정합성 확인은 validation.md에 짧게 남긴다.
+.edu/catalog.json: {"project":"이름","features":[{"id":"SPEC-001","title":"이름","status":"draft","spec":"specs/001/spec.md","plan":"specs/001/plan.md","validation":"specs/001/validation.md","summary":"설명","evidence":[]}]}
+상태: draft, specified, designed, planned, building, ready, done, blocked. 실제 근거 없이 다음 상태로 넘기지 않는다. 변경한 spec의 과거 검사를 현재 통과 근거로 재사용하지 않는다.
+커밋 SHA는 git log에서 조회한다. 자기 커밋의 SHA를 추적 파일에 적으려고 무한 추가 커밋하지 않는다.
+문서 템플릿은 .claude/edu-templates/에서 필요한 것만 읽는다. 기본 명령은 실제 package.json의 npm start, npm test, npm run doctor다.

@@ -1,26 +1,22 @@
 {
   "schema": 1,
   "name": "sdd-education-skills",
-  "version": "1.6.1",
+  "version": "2.0.0",
   "skills": [
     "edu-build",
     "edu-change",
-    "edu-fix",
+    "edu-converge",
     "edu-flow",
     "edu-interview",
     "edu-mockup",
     "edu-plan",
     "edu-spec",
-    "edu-start"
+    "edu-wiki"
   ],
   "files": [
     {
       "path": ".claude/edu-rules.md",
-      "sha256": "a051081ff8fef1d95633d16e97682d58573be23371231d24c6a61fa2bbc0c0ac"
-    },
-    {
-      "path": ".claude/edu-templates/bug-report.md",
-      "sha256": "b737e920c51527e3181456afcbce8e14887627a8a433f95de88763a36fe766eb"
+      "sha256": "2de3d8d9a80618b645c69e9a411a0ac550e0b0aee266486f575a7d01a72b6def"
     },
     {
       "path": ".claude/edu-templates/design-choice.md",
@@ -28,7 +24,7 @@
     },
     {
       "path": ".claude/edu-templates/feature-catalog.md",
-      "sha256": "33d8a42b18e393568d04ccc63ee08d2416ad21329f4f75b73966e76152ef13f7"
+      "sha256": "973b97d54bac3c44f2ccd31e765bae668652ef177719b335860d60d46cf8112f"
     },
     {
       "path": ".claude/edu-templates/interview.md",
@@ -40,75 +36,71 @@
     },
     {
       "path": ".claude/edu-templates/plan.md",
-      "sha256": "9484593280162ce87fd4f2499c28961816756f296f9e0811807ff455d1a86ec4"
+      "sha256": "6937d4d0198120e3351009a3ed56e21d5266f9b3b115e06dca0a363c6bee8003"
     },
     {
       "path": ".claude/edu-templates/spec.md",
-      "sha256": "f226171a6fd42ef7fc3f1b6d59fe7724bba32f700948a2ed4c914ada7534869b"
+      "sha256": "a857d341deeaeffadef4e7cf0f85e4f44c450ed9834b3f971f51fd1d2e7df95e"
     },
     {
       "path": ".claude/edu-templates/validation.md",
-      "sha256": "69137c47833dec8aab9d4f6a605f0ef16ab9a2763a5ad21bb240ac72046f0458"
+      "sha256": "b1c3de06e20791971f8501e5007081bb18c0118e2ff7aabc9e0227ee92b7cadf"
     },
     {
       "path": ".claude/skills/edu-build/SKILL.md",
-      "sha256": "6e5d226c99e7b51a6fa3478ab2c94e6f7efb48dea010af138c2e6f43399e144c"
+      "sha256": "c2d5bcd0aaaed39d9e343b976b2022d42e33c53e26927926dc47b3e9a3b4921f"
     },
     {
       "path": ".claude/skills/edu-change/SKILL.md",
-      "sha256": "f4a8e49eec7b3ae7b96c5a86c6bb70c52c1802d2392adaa2f2b396f85b6e74e2"
+      "sha256": "b8645fbed4dfa4d96b985e68fc92fa6415293acbc06df0deb54165d7dfd50a23"
     },
     {
-      "path": ".claude/skills/edu-fix/SKILL.md",
-      "sha256": "be4937bcf0fce4bf1ffc3ab5e3d0b7a9f6298c73fc628f96b936c64eb9740b82"
+      "path": ".claude/skills/edu-converge/SKILL.md",
+      "sha256": "8387febc4a269dab5288b56f9efd0f3fc2d78c83978f3a587e52139ceb310c94"
     },
     {
       "path": ".claude/skills/edu-flow/SKILL.md",
-      "sha256": "7fadaf36b5a3643e2ce6f87f981b6cd0b33dc7615eed4963dd4fd344a69ccfec"
+      "sha256": "1664d0d0d50305df294c1f340b1385363d58315ed7a0afb97684becf5e25814c"
     },
     {
       "path": ".claude/skills/edu-interview/SKILL.md",
-      "sha256": "dfd0b45d6faa207959cba412dc7b3d05ba9a690b56911f03215ff779c7ff0a91"
+      "sha256": "f54ace843b97f08467b43f51af2d61a28797acd9f93962ae24f8ed2161db3fc3"
     },
     {
-      "path": ".claude/skills/edu-mockup/assets/design-shots/canvas.html",
-      "sha256": "41643c1d8109b2a4efb0271d06ede969c446cee3846961acf28fc70084dac863"
+      "path": ".claude/skills/edu-mockup/assets/design-shots/design-A.png",
+      "sha256": "4fb7cf062876efaa5573b6ff3e72ff1f69ca5fe6e0e020d8a3e64d1c413fe4af"
+    },
+    {
+      "path": ".claude/skills/edu-mockup/assets/design-shots/design-B.png",
+      "sha256": "317caa843a9b732db600738f3fb26deea4f04e518f4f54f86cf6208741e0c23d"
+    },
+    {
+      "path": ".claude/skills/edu-mockup/assets/design-shots/design-C.png",
+      "sha256": "b783efc316abcba6f474391418c7c4d2bdf80cec8c220785ca9bf45ffc651bfe"
     },
     {
       "path": ".claude/skills/edu-mockup/assets/design-shots/examples.json",
-      "sha256": "3c10923813175d6f9cbd43ecf5cc3f27a82a63a9439e79c3912cf99a1cdb90a7"
-    },
-    {
-      "path": ".claude/skills/edu-mockup/assets/design-shots/index.html",
-      "sha256": "a1e601c766fda6f7faca51a26cbc8356852c1a64441ca79f099b611f4c026b6a"
+      "sha256": "d872870a98811d944747485d2276b65b21df4e1bfaa6ba6540807fd47825e5f0"
     },
     {
       "path": ".claude/skills/edu-mockup/assets/design-shots/README.md",
-      "sha256": "3d362c83e0f2990a200438d6942136d614d9330fd9e3e4417f0770ce4ebbc882"
-    },
-    {
-      "path": ".claude/skills/edu-mockup/assets/design-shots/ribbon.html",
-      "sha256": "0f1f23847174d047de5963cc76727f38abfe71016e9ea238582b80a00c3d7e4f"
-    },
-    {
-      "path": ".claude/skills/edu-mockup/assets/design-shots/studio.html",
-      "sha256": "241ab240e717d2cceaa317f2072df9cdc6c80e1ee4fc7f7a56a5645ea91b8230"
+      "sha256": "015b7af3aad867e5fd4cda6d833e36e5649a5730722a43296954938053da2f02"
     },
     {
       "path": ".claude/skills/edu-mockup/SKILL.md",
-      "sha256": "6d082d5438d5b2d9c9bae96e775c23f7b1445418a4bd02f98e2cde7671707d5a"
+      "sha256": "0a5a7e334d86bd9069a8d7831d2d476ddfd42f38d7f73b1c4e96450359dfdc5b"
     },
     {
       "path": ".claude/skills/edu-plan/SKILL.md",
-      "sha256": "d8d4485b11cedf2912008655ede6085641cfe74115f2b6ad9e18463eb48faa56"
+      "sha256": "d165e5e8668affe1fb9c5965e8bf7746c362fe4c1973bb26860628e345759d11"
     },
     {
       "path": ".claude/skills/edu-spec/SKILL.md",
-      "sha256": "00547870cc36eeee284c1e0aea9d9e7736e34c56a63b9b0392149f2d6531d396"
+      "sha256": "7cac30f9e67de5029c0fe3b632f5362d362719dc1fff57173e5e612dc4554ffe"
     },
     {
-      "path": ".claude/skills/edu-start/SKILL.md",
-      "sha256": "5f4979e2705c697b6ca3d419c81360ea0ff181e8f173dd98fd8e7e5a7a996fdb"
+      "path": ".claude/skills/edu-wiki/SKILL.md",
+      "sha256": "fa1a25e6367b9c0b1e57b753824b7221b7df490f673c08bea2e533ffa18b8b88"
     },
     {
       "path": ".gitignore",
@@ -128,7 +120,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "a590dd742f6021e1c86c37b4423db048ab75319b1b037e466d795674934d387b"
+      "sha256": "0efa33f178e28f4d87a4ea9adafff830b4dbc1472363c8ede976a0256d7e25fe"
     },
     {
       "path": "samples/lecture.html",
@@ -140,7 +132,7 @@
     },
     {
       "path": "tools/doctor.mjs",
-      "sha256": "cd08a6b40425d1f71247d47fcd1847a66d054f6248a8d784ca45e3bacfbca62a"
+      "sha256": "1322e746219aeaafcb861a3107e7e363895019611d7e33ca883aa8b4a1630a43"
     },
     {
       "path": "tools/serve.mjs",

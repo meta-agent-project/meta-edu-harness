@@ -1,43 +1,33 @@
-# SDD 교육 스킬: 주소로 설치하고 인터뷰부터 시작하기
+# 비개발자 SDD 교육 스킬
 
-비개발자 4시간 수업용 Claude Code 프로젝트 스킬 9개다. 수강생은 GitHub MCP가 연결된 Code 로컬 세션에서 이 저장소의 주소와 설치 요청을 전달한다.
+4시간 수업에서 사용하는 Claude Code 프로젝트 스킬 9개다. 수강생은 강사가 제공한 실습 폴더를 Code 로컬 세션에서 연다. GitHub 계정·MCP·원격 push 없이 로컬 Git을 사용한다. Node.js 24, Claude Desktop, Git은 주최 측이 사전 설치한다.
 
-## Claude가 설치 요청을 받았다면
+## 흐름
 
-1. GitHub MCP로 이 저장소의 README와 [INSTALL.md](INSTALL.md)를 읽는다.
-2. 요청한 버전의 실제 커밋을 확인하고 INSTALL 절차대로 현재 프로젝트에 설치한다.
-3. 스킬 원문 전체를 대화에 출력하거나 다시 생성하지 않는다. 원문 파일을 가져와 설치한다.
-4. 설치·환경 검사·스킬 인식 결과를 짧게 보고한 뒤 edu-start와 edu-interview로 이어 간다.
+`edu-flow start → edu-interview → edu-spec → edu-mockup → edu-plan → edu-build → edu-converge → 로컬 커밋`
 
-사용자가 주소만 보냈고 대화에서 설치 의도가 이미 명확하면 그 의도를 따른다. 단순 열람·검토 요청을 설치 요청으로 해석하지 않는다.
+MVP 사용자 테스트 뒤 `edu-flow roadmap`으로 본개발을 확정한다. 기대 동작 변경은 `edu-change`, 이번 회차 완료 후 시각적 기능 지도는 `edu-wiki`다. 별도 history.md를 만들지 않고 Git 메시지와 diff에 변경 이유를 남긴다.
 
-## 수강생 요청문
+| 스킬 | 역할 |
+|---|---|
+| edu-flow | 환경 점검·진행·로드맵·backlog |
+| edu-interview | 무엇을 만들지와 MVP 범위 확정 |
+| edu-spec | 사용자 동작과 완료 조건 |
+| edu-mockup | few-shot 사진 2개 참고·목업 2안 선택 |
+| edu-plan | 구현 순서와 검사 방법 |
+| edu-build | 실패 테스트·구현·통과·회귀 검사 |
+| edu-converge | 명세·문서·코드와 검사 근거 일치 확인 |
+| edu-change | 같은 spec을 먼저 고치는 요구 변경 |
+| edu-wiki | 검증된 현재 기능의 로컬 HTML 지도 |
 
-이 GitHub 저장소의 교육 스킬을 현재 프로젝트에 설치해줘: https://github.com/meta-agent-project/meta-edu-harness
+## 제공·설치
 
-연결된 GitHub MCP로 README와 INSTALL.md를 확인하고 따라줘. 설치된 버전·스킬 수·검사 결과를 요약해줘.
+강사는 [INSTALL.md](INSTALL.md)에 따라 새 실습 폴더를 준비해 제공한다. 주소를 받아 설치하는 경우에도 공개 저장소 읽기에 GitHub 가입이나 MCP를 필수로 요구하지 않는다. 단순 검토 요청을 설치 요청으로 해석하지 않는다. 기존 프로젝트를 자동 덮어쓰지 않는다.
 
-설치 요청 전에 GitHub MCP 인증과 Node.js 24 이상, Git, Code의 로컬 파일 쓰기가 준비돼 있어야 한다. MCP는 저장소를 읽고 Code의 로컬 도구가 파일을 설치한다.
+`payload/`는 완성 앱이 아니라 스킬·샘플·로컬 서버·환경 검사다. 교안·슬라이드·워크북은 포함하지 않는다. 디자인 참고 PNG 3종은 edu-mockup의 assets에 있다. 앱은 브라우저에서 실행하고 Node.js는 로컬 서버와 자동 테스트에 사용한다.
 
-처음 참여한다면 [수강생·강사 준비 안내](PREPARATION.md)를 먼저 확인한다. 프로그램 설치는 강의실에서 미리 마치고, 개인 로그인·Git 작성자 설정·MCP 연결·스킬 설치는 수업 시작 후 함께 진행한다. 이 개인 설정 시간을 4시간 운영에 포함한다.
+## 2.0 정리
 
-만드는 결과물은 브라우저에서 실행하는 웹 앱이다. Claude Desktop의 Code 탭은 개발 도구이며, Node.js는 스킬 설치기·로컬 미리보기 서버·자동 테스트를 실행한다. Electron 등 데스크톱 앱으로 패키징하지 않는다. Node.js 24는 교육 환경을 통일한 지원 기준이다. 수강생에게 Node나 Git 명령어 암기를 요구하지 않는다. Git 작업은 Claude Code에 자연어로 요청하며 GitHub Desktop은 필요하지 않다.
+edu-start를 edu-flow start로 통합하고 edu-converge·edu-wiki를 추가했다. 수업에서 사용하지 않는 별도 edu-fix는 제외했다. 수업에서 사용하지 않는 별도 edu-fix는 제외했다. 수업에서 사용하지 않는 별도 edu-fix는 제외했다. 별도 history·일상 ADR·수강생 GitHub/MCP 설정·정적 디자인 갤러리는 제외했다. 기존 1.x 사용자 파일을 자동 삭제하거나 업그레이드하지 않으므로 새 실습 폴더를 준비한다.
 
-## 스킬
-
-start(환경) → interview(만들 앱·MVP) → spec → mockup → plan → build.
-mockup에는 디자인 few-shot 예시 3종과 선택용 페이지가 포함된다. 요청→결과 2쌍을 골라 목업 2안을 만든다. change는 요구사항 변경, fix는 버그 수정, flow는 로드맵·backlog·상태를 관리한다. 실제 명령은 /edu-start처럼 edu- 접두사를 쓴다.
-
-HTML 편집기는 선택 가능한 수업 예제다. 인터뷰는 다른 앱도 다룬다. 외부 DB 없이 시작하고 필요한 저장은 로컬 JSON 등을 검토한다. 회귀 검사는 표현한 조건을 확인하며 모든 버그가 없음을 보장하지 않는다.
-
-## 저장소 구성
-
-- INSTALL.md: Claude가 따라갈 설치 절차.
-- install.mjs: Node 내장 기능으로 파일 검증·로컬 복사. 기존 파일 충돌 시 중단.
-- manifest.json: 버전·스킬 목록·설치 파일과 SHA-256.
-- payload/: 프로젝트에 설치할 .claude·CLAUDE.md와 기본 실행 환경. 완성 앱은 포함하지 않는다.
-- PREPARATION.md: 사전 설치, 수업 중 개인 설정, 30명·강사 1명 운영 제안.
-
-처음 수업은 새 실습 폴더를 사용한다. 강사 스킬 저장소의 .git은 설치하지 않으며, 수강생 앱의 GitHub 저장소는 MVP 이후 별도로 만든다. 인증정보·개인 설정·완성형 예제는 이 저장소에 올리지 않는다.
-
-흐름 참고: [metakit-sdd-harness](https://github.com/meta-agent-project/metakit-sdd-harness). 교육용 절차는 별도로 작성했다.
+스킬 문서·설치기·로컬 검사 결과와 실제 Claude 수업 수행은 구분한다. 모델 사용량과 30명 수업 완주를 보장하지 않으며 수업 전 실제 환경 리허설이 필요하다.

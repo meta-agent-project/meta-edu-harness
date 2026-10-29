@@ -36,7 +36,7 @@ try{
   if(!(await fs.stat(target)).isDirectory()||inside(source,target)||inside(target,source))throw Error('설치 원본과 분리된 실습 폴더를 선택하세요.');
   const manifestBytes=await fs.readFile(path.join(source,'manifest.json'));
   const manifest=JSON.parse(manifestBytes);
-  if(manifest.schema!==1||!Array.isArray(manifest.files)||!Array.isArray(manifest.skills)||manifest.skills.length!==9)throw Error('지원하지 않는 설치 목록입니다.');
+  if(manifest.schema!==1||!Array.isArray(manifest.files)||!Array.isArray(manifest.skills)||manifest.skills.length===0)throw Error('지원하지 않는 설치 목록입니다.');
   const payload=path.join(source,'payload');
   if((await fs.lstat(payload)).isSymbolicLink())throw Error('payload 링크를 지원하지 않습니다.');
   const plan=[],conflicts=[],seen=new Set();
@@ -61,5 +61,5 @@ try{
   let written=0;
   for(const item of plan){if(!item.exists){await fs.mkdir(path.dirname(item.to),{recursive:true});await fs.writeFile(item.to,item.bytes,{flag:'wx'});written++;}}
   if(!old){await fs.mkdir(path.dirname(receiptPath),{recursive:true});await fs.writeFile(receiptPath,JSON.stringify({...receipt,installedAt:new Date().toISOString()},null,2)+'\n',{flag:'wx'});}
-  console.log(JSON.stringify({status:'installed',target,version:manifest.version,skills:manifest.skills.length,written,unchanged:plan.length-written,sourceProof:receipt.sourceProof,next:'npm run doctor → npm test → /edu-start → /edu-interview'},null,2));
+  console.log(JSON.stringify({status:'installed',target,version:manifest.version,skills:manifest.skills.length,written,unchanged:plan.length-written,sourceProof:receipt.sourceProof,next:'npm run doctor → npm test → /edu-flow start → /edu-interview'},null,2));
 }catch(error){console.error('설치 중단: '+error.message);console.error('기존 파일을 강제로 덮어쓰지 않았습니다. 오류를 해결한 뒤 같은 버전으로 다시 실행하세요.');process.exitCode=1;}
